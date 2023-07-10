@@ -6,7 +6,7 @@ fppan <- wellPanel(id="dispoptfp",
                    textOutput("current", ),
                    actionButton("down", label = "↓",class="wave"),
                    sliderTextInput(
-                     inputId = "slider", label = 'Spectra', 
+                     inputId = "slider", label = '', 
                      choices = "Load a file", 
                      grid = TRUE
                    )

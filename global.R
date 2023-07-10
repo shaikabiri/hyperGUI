@@ -9,7 +9,11 @@ library("stringr")
 library("readr")
 library("abind")
 library("shinyWidgets")
-
+library("hyperSpec")
+library("shinybusy")
+library("imager")
+library("reticulate")
+library("terra")
 ################################################################################
 ######SHINY_CONFIG##############################################################
 #Change the maximum size to upload files

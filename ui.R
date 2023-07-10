@@ -1,7 +1,14 @@
 
 
 ui <-
+
   fluidPage(
+    add_loading_state(
+      ".shiny-plot-output",
+      text = "Please wait...",
+      svgColor = "steelblue"
+    ),
+    add_busy_bar(color="#FF0000"),
     useShinyjs(),
     titlePanel("HyperGUI"),
     #a sidebar lay out,
@@ -20,6 +27,12 @@ ui <-
           label = "Select an area on  the image to:",
           choices = c("Crop", "Plot Signal"),
           status = "primary"
+        ),
+        sliderTextInput(
+          inputId = "spectralslider", label = 'Wavelength range for spectral plot:', 
+          choices = c("","Load a file",""), 
+          selected = c("",""),
+          grid = TRUE
         ),
         actionButton("clearplots", "Clear"),
         

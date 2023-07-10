@@ -9,7 +9,7 @@ header_reader <- function(header.txt){
   hdr.parsed$height <- as.numeric(gsub("\\D", "", header.txt[stringr::str_detect(header.txt,"lines")]))
   #take the wavelengths in the image
   header.txt <- paste(header.txt, collapse =  " ")
-  hdr.parsed$wavelength <- as.numeric(unlist(str_extract_all(str_extract(header.txt,"avelength\\s*(.*?)\\s*\\}"),"\\d+\\.?\\d*")))
+  hdr.parsed$wavelength <- as.numeric(unlist(str_extract_all(str_extract(header.txt,"avelength = \\s*(.*?)\\s*\\}"),"\\d+\\.?\\d*")))
 
   hdr.parsed
 }

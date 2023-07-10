@@ -4,21 +4,21 @@ rgbpan <- wellPanel(
   tags$h6("Spectra to use for pseudo-RGB: ", ),
   sliderTextInput(
     inputId = "chan1",
-    label = 'Spectra',
+    label = 'Red',
     choices = "Load a file",
     grid = TRUE
   ),
   
   sliderTextInput(
     inputId = "chan2",
-    label = 'Spectra',
+    label = 'Blue',
     choices = "Load a file",
     grid = TRUE
   ),
   
   sliderTextInput(
     inputId = "chan3",
-    label = 'Spectra',
+    label = 'Green',
     choices = "Load a file",
     grid = TRUE
   )
