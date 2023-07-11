@@ -5,7 +5,7 @@ A Versatile Tool for Hyperspectral Image Analysis and Data Extraction
 HyperGUI is based on two datasets which can be accessed via these links: [A dataset for benchtop hyperspectral image](https://gsi.geodata.gov.ie/downloads/Bedrock/Data/Hyperspectral_Sample_data.zip) and [a dataset for aerial hyperspectral image](https://data.mendeley.com/datasets/5ph8ms8p5n/2). Checking these sample datasets will help with utilizing the software.
 
 ### Benchtop sample
-For a benchtop sample first load the raw and hdr files of the image while selecting labratory as type of hyperspectral.
+For a benchtop sample first load the raw and hdr files of the image while selecting laboratory as type of hyperspectral image.
 ![image](https://github.com/shaikabiri/hyperGUI/assets/114778345/136814e7-b986-4dd3-a373-d0612f22482f)
 
 If available upload the raw and hdr files of the white and dark current seperately.
@@ -31,6 +31,27 @@ For cropping  select the crop tool from left corner of display section, and clic
 
 To plot spectra select the plot signal tool from left corner of display section and select the desired range below, then click and drag the mouse on the region of interest. Clear button can be used to clear the plots and ROIs. 
 ![image](https://github.com/shaikabiri/hyperGUI/assets/114778345/6e17a9b6-64a8-4ad0-a630-79c1dccfd193)
+
+### Aerial Sample
+To load an aerial sample change the type of hyperspectral image to aerial and load the raw and hdr file. 
+![image](https://github.com/shaikabiri/hyperGUI/assets/114778345/ba1fb744-6f1a-464e-aaf7-cb677b7aac10)
+
+For ground references, the shapefiles and spectral data of ground references should be loaded. Make sure shapefiles are in .shp format alongside their .shx and .dbf files and references are in raw ENVI and hdr format. Also references shapefile and spectral files should be named in an ordered fashion. 
+![image](https://github.com/shaikabiri/hyperGUI/assets/114778345/7c8338a5-3b3a-4a38-9900-fcab4582978a)
+
+After loading all the files linear calibration or in the case that references are not available, dark pixel subtraction can be performed. 
+![image](https://github.com/shaikabiri/hyperGUI/assets/114778345/3d82ac30-bf61-40a3-a389-44f838cd493e)
+
+The calibrated image can be saved as a raster file.
+
+The rest of functions is the same as for benchtop sample. 
+
+##Copyright for the used data
+###Benchtop data: From Irish Public Sector Data (Geological Survey Ireland) licensed under a Creative Commons Attribution 4.0 International (CC BY 4.0) licence.
+###Aerial data: From Jha, Sudhanshu Shekhar; C.V.S.S, Manohar Kumar; Nidamanuri, Rama Rao (2020), “Multi-platform optical remote sensing dataset for target detection”, Mendeley Data, V2, doi: 10.17632/5ph8ms8p5n.2, licensed under a Creative Commons Attribution 4.0 International (CC BY 4.0) licence.
+
+
+
 
 
 
