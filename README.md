@@ -7,7 +7,10 @@ HyperGUI is based on two datasets which can be accessed via these links: [A data
 ### Benchtop sample
 For a benchtop sample first load the raw and hdr files of the image while selecting labratory as type of hyperspectral.
 ![image](https://github.com/shaikabiri/hyperGUI/assets/114778345/136814e7-b986-4dd3-a373-d0612f22482f)
-If available upload the raw and hdr files of the white and dark current seperately.
-![image](https://github.com/shaikabiri/hyperGUI/assets/114778345/c38d6c06-d161-4fe4-bdd2-0d3a1e617a02)
 
+If available upload the raw and hdr files of the white and dark current seperately.
+![image](https://github.com/shaikabiri/hyperGUI/assets/114778345/b0359ad0-5247-469e-8978-3d8a0c11b139)
+
+After loading the data and references, and dark/white current calibration or dark pixel subtraction in case no references are available can be selected to perform.
+![image](https://github.com/shaikabiri/hyperGUI/assets/114778345/766d97d4-64ed-410e-9b68-6d59727546ac)
 
