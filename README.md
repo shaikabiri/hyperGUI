@@ -128,7 +128,7 @@ HyperGUI is based on two datasets which can be accessed via these links: [A data
 
 <br><br>
 
-- The rest of functions is the same as for benchtop sample. 
+- The rest of functions are the same as for benchtop sample. 
 
 ## Copyright for the used data
 
