@@ -18,7 +18,9 @@ server <- function(input, output, session) {
       "savewave",
       "DWC",
       "LC",
-      "DOS")
+      "DOS",
+      'Scale1',
+      'Scale2')
   for (item in toggle_list) {
     shinyjs::disable(item)
   }
@@ -100,9 +102,8 @@ server <- function(input, output, session) {
     hdrdark <- header_reader(hdrdark)
     hdrdarkspare <<- hdrdark
     datadark <-
-      hyperSpec::read.ENVI.HySpex(file = imgpath, headerfile = hdrpath)
-    darkmat <<-
-      array(datadark$spc, dim = c(hdrdark$height, hdrdark$width, length(hdrdark$wavelength)))
+      caTools::read.ENVI(filename = imgpath, headerfile = hdrpath)
+    darkmat <<- datadark
     darkmat <<-colMeans(darkmat, dims = 1)
   }) 
   
@@ -117,9 +118,9 @@ server <- function(input, output, session) {
     hdrwhite <- header_reader(hdrwhite)
     hdrwhitespare <<- hdrwhite
     datahdrwhite <-
-      hyperSpec::read.ENVI.HySpex(file = imgpath, headerfile = hdrpath)
+      caTools::read.ENVI(filename = imgpath, headerfile = hdrpath)
     whitemat <<-
-      array(datahdrwhite$spc, dim = c(hdrwhite$height, hdrwhite$width, length(hdrwhite$wavelength)))
+      datahdrwhite
     whitemat <<-colMeans(whitemat, dims = 1)
 
   }) 
@@ -128,6 +129,24 @@ server <- function(input, output, session) {
     dataminusdark <- sweep(saveMat , 2:3, darkmat)
     whiteminusdark <- whitemat - darkmat
     saveMat <<- sweep(dataminusdark,2:3,whiteminusdark,FUN = '/')
+  })
+  
+  observeEvent(input$Scale1, {
+    ldim = dim(saveMat)
+    saveMat <- reticulate::array_reshape(saveMat,c(ldim[1]*ldim[2],ldim[3]))
+    for (i in 1:length(hdrspare$wavelength)) {
+      saveMat[,i] <- (saveMat[,i] - min(saveMat[,i])) / (max(saveMat[,i]) - min(saveMat[,i]))
+    }
+    saveMat <<- reticulate::array_reshape(saveMat,c(ldim[1],ldim[2],ldim[3]))
+  })
+  
+  observeEvent(input$Scale2, {
+    ldim = dim(saveMat)
+    saveMat <- reticulate::array_reshape(saveMat,c(ldim[1]*ldim[2],ldim[3]))
+    for (i in 1:length(hdrspare$width*hdrspare$height)) {
+      saveMat[i,] <- (saveMat[i,] - min(saveMat[i,])) / (max(saveMat[i,]) - min(saveMat[i,]))
+    }
+    saveMat <<- reticulate::array_reshape(saveMat,c(ldim[1],ldim[2],ldim[3]))
   })
   
   
@@ -168,13 +187,13 @@ server <- function(input, output, session) {
         )
       }
       
+      
       if (input$hypeType=="lab"){
       data <-
-        hyperSpec::read.ENVI.HySpex(file = imgpath, headerfile = hdrpath)
+        caTools::read.ENVI(imgpath,headerfile = hdrpath)
       sparedata <<- data
       saveData <<- data
-      saveMat <<-
-        array(saveData$spc, dim = c(hdr$height, hdr$width, length(hdr$wavelength)))
+      saveMat <<- data
       } else if (input$hypeType=="aer"){
         file.copy(pathRaw$datapath, paste0("", pathRaw$name))
         rst <<- terra::rast(pathRaw$name[grep("hdr",pathRaw$name,ignore.case = T,invert = T)])

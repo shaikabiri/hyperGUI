@@ -14,6 +14,9 @@ library("shinybusy")
 library("imager")
 library("reticulate")
 library("terra")
+library("caTools")
+library("reticulate")
+
 ################################################################################
 ######SHINY_CONFIG##############################################################
 #Change the maximum size to upload files
