@@ -9,13 +9,18 @@ Please use the following code in Rstudio install and use HyperGUI for a local ma
 
 ```
 #this code will open HyperGUI as a clone of the github repository in your local machine in a new Rstudio project
+
 usethis::create_from_github(
      "https://github.com/shaikabiri/hyperGUI",
      #please change to your desired directory
-     destdir = "C://Sub-Projects//Htest"
+     destdir = "~/Dir"
 )
+
 #after the new project is openned, install the required libraries by the following command:
 source('requirements.R')
+
+#run the app by the following command
+shiny::runApp()
 ```
 
 
