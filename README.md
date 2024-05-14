@@ -8,8 +8,7 @@ HyperGUI is based on two datasets which can be accessed via these links: [A data
 Please use the following code in Rstudio install and use HyperGUI for a local machine.
 
 ```
-#this code will open HyperGUI as a clone of the github repository in your local machine in a new Rstudio project
-
+#open HyperGUI as a clone of the github repository in your local machine in a new Rstudio project:
 usethis::create_from_github(
      "https://github.com/shaikabiri/hyperGUI",
      #please change to your desired directory
