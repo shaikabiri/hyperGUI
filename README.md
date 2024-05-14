@@ -5,9 +5,12 @@ A Versatile Tool for Hyperspectral Image Analysis and Data Extraction
 HyperGUI is based on two datasets which can be accessed via these links: [A dataset for benchtop hyperspectral image](https://gsi.geodata.gov.ie/downloads/Bedrock/Data/Hyperspectral_Sample_data.zip) and [a dataset for aerial hyperspectral image](https://data.mendeley.com/datasets/5ph8ms8p5n/2). Checking these sample datasets will help with utilizing the software.
 
 ### Local installation
-Please use the following code in Rstudio install and use HyperGUI for a local machine.
+Please use the following code in R or Rstudio to install and use HyperGUI in a local machine.
 
 ```
+#install the usethis package first
+install.packages('usethis')
+
 #open HyperGUI as a clone of the github repository in your local machine in a new Rstudio project:
 usethis::create_from_github(
      "https://github.com/shaikabiri/hyperGUI",
@@ -15,7 +18,7 @@ usethis::create_from_github(
      destdir = "~/Dir"
 )
 
-#after the new project is openned, install the required libraries by the following command:
+#after the new project is opened, install the required libraries by the following command:
 source('requirements.R')
 
 #run the app by the following command
