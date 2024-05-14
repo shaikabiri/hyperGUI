@@ -22,6 +22,10 @@ source('requirements.R')
 shiny::runApp()
 ```
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6c317516ff5257517e43ba56a328e086cba7cbbd
 ### Benchtop sample
 - For a benchtop sample first load the raw and hdr files of the image while selecting laboratory as type of hyperspectral image.
 
