@@ -18,7 +18,7 @@ usethis::create_from_github(
      destdir = "~/Dir"
 )
 
-#after the new project is openned, install the required libraries by the following command:
+#after the new project is opened, install the required libraries by the following command:
 source('requirements.R')
 
 #run the app by the following command
