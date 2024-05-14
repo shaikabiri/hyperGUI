@@ -133,20 +133,24 @@ server <- function(input, output, session) {
   
   observeEvent(input$Scale1, {
     ldim = dim(saveMat)
-    saveMat <- reticulate::array_reshape(saveMat,c(ldim[1]*ldim[2],ldim[3]))
+    dim(saveMat) <- c(ldim[1]*ldim[2],ldim[3])
+    
     for (i in 1:length(hdrspare$wavelength)) {
       saveMat[,i] <- (saveMat[,i] - min(saveMat[,i])) / (max(saveMat[,i]) - min(saveMat[,i]))
     }
-    saveMat <<- reticulate::array_reshape(saveMat,c(ldim[1],ldim[2],ldim[3]))
-  })
+    dim(saveMat) <- c(ldim[1],ldim[2],ldim[3])
+    saveMat <<- saveMat
+    })
   
   observeEvent(input$Scale2, {
     ldim = dim(saveMat)
-    saveMat <- reticulate::array_reshape(saveMat,c(ldim[1]*ldim[2],ldim[3]))
-    for (i in 1:length(hdrspare$width*hdrspare$height)) {
+    dim(saveMat) <- c(ldim[1]*ldim[2],ldim[3])
+    print(hdrspare$width*hdrspare$height)
+    for (i in 1:(hdrspare$width*hdrspare$height)) {
       saveMat[i,] <- (saveMat[i,] - min(saveMat[i,])) / (max(saveMat[i,]) - min(saveMat[i,]))
     }
-    saveMat <<- reticulate::array_reshape(saveMat,c(ldim[1],ldim[2],ldim[3]))
+    dim(saveMat) <- c(ldim[1],ldim[2],ldim[3])
+    saveMat <<- saveMat
   })
   
   
@@ -566,10 +570,10 @@ server <- function(input, output, session) {
   
   observeEvent(input$PCAplot,{
     pcaVarvar <<- pca_anal$sdev^2 / sum(pca_anal$sdev^2)
-    output$specPlot <- renderPlot((ggplot() + geom_line(aes(y=pcaVarvar,x=1:length(pcaVarvar))) + 
-                                     geom_point(aes(y=pcaVarvar,x=1:length(pcaVarvar)),size=4)+
+    output$specPlot <- renderPlot((ggplot() + geom_line(aes(y=log(pcaVarvar),x=1:length(pcaVarvar))) + 
+                                     geom_point(aes(y=log(pcaVarvar),x=1:length(pcaVarvar)),size=4)+
                                      xlab("No. of component") + 
-                                     ylab("Proportion of variance explained")+
+                                     ylab("log(Proportion of variance explained)")+
                                      theme_classic(base_size = 30)),height = 500,width = 550)
   })
   
