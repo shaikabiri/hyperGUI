@@ -1,0 +1,38 @@
+Package: hyperGUI
+Title: A webapp for hyperspectral image processing
+Version: 0.0.0.9000
+Authors@R: 
+    c(person("Shayan", "Kabiri", , "shayankabiri6@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "https://orcid.org/0000-0003-3231-5843")),
+    person("Sharon M.", "O'Rourke", role = c("aut"),
+           comment = c(ORCID = "https://orcid.org/0000-0002-4565-1689")))
+Maintainer: Shayan Kabiri <shayankabiri6@gmail.com>           
+Description: This package is to install the hyperGUI webapp on a local machine with ease. 
+License: `use_mit_license()`
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
+Depends: 
+    R (>= 3.0)
+LazyData: true
+Imports:
+    ggplot2,
+    shiny,
+    shinyFiles,
+    shinyjs,
+    raster,
+    stringr,
+    readr,
+    abind,
+    shinyWidgets,
+    hyperSpec,
+    shinybusy,
+    imager,
+    reticulate,
+    terra,
+    caTools
+Author: 
+    Shayan Kabiri [cre, aut]
+           (<https://orcid.org/0000-0003-3231-5843>)
+    Sharon M. O'Rourke [aut]
+           (<https://orcid.org/0000-0002-4565-1689>)
