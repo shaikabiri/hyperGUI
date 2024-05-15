@@ -5,5 +5,5 @@
 #' @export
 
 run_app <- function() {
-  shiny::runApp(paste(path.package('hyperGUI'),'/inst/shiny',sep = ''))
+  shiny::runApp(paste(path.package('hyperGUI'),'/shiny',sep = ''))
 }
