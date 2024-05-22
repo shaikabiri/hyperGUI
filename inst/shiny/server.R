@@ -40,12 +40,12 @@ server <- function(input, output, session) {
 
   observeEvent(input$hyperRefFile,{
     hyperPaths <<- input$hyperRefFile
-    file.copy(hyperPaths$datapath, paste0("", hyperPaths$name))
-    dat <- read.table('T1.txt',skip = 2,header = FALSE)
+    dat <- read.table(hyperPaths$datapath[1],skip = 2,header = FALSE)
+    refHdr <<- dat$V1
     refSPC <<- matrix(nrow = nrow(dat),ncol=(nrow(hyperPaths)))
     for (i in 1:nrow(hyperPaths))
     {
-      dat <- read.table(paste('',hyperPaths$name[i],sep = ''),skip = 2,header = FALSE)
+      dat <- read.table(hyperPaths$datapath[i],skip = 2,header = FALSE)
       spec <- dat$V2
       refSPC[,i] <<- as.vector(spec)
     }
@@ -585,7 +585,7 @@ server <- function(input, output, session) {
     extractedSPC <- lapply(shapes,terra::extract,x=rst)
     meansSPC <- sapply(extractedSPC ,FUN = function(x) {apply(x,MARGIN=2,FUN=median)})
     meansSPC <- meansSPC[-1,]
-    commonWave <- which(hdrspare$wavelength%in%refHdr$wavelength)
+    commonWave <- which(hdrspare$wavelength%in%refHdr)
     meansSPC <- meansSPC[commonWave,]
 
     sliders <- c("slider", "chan1", "chan2", "chan3","spectralslider","pcaslider")
