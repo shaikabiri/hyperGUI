@@ -60,7 +60,17 @@ observeEvent(input$saveformat,{
       np$save(file,r_to_py(pcaSaveMat))}
     )
   }
-  
+
+  else if (input$saveformat == "rast"){
+    
+    output$save <- downloadHandler(
+      filename = function(){
+        "dataset.tiff"
+      },
+      content =  function(file) {terra::writeRaster(x = pcaSaveMat, filename = file)}
+    )
+  }
+    
   
 }
 )
