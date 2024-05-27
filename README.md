@@ -5,6 +5,9 @@ A Versatile Tool for Hyperspectral Image Analysis and Data Extraction
 HyperGUI is based on two datasets which can be accessed via these links: [A dataset for benchtop hyperspectral image](https://gsi.geodata.gov.ie/downloads/Bedrock/Data/Hyperspectral_Sample_data.zip) and [a dataset for aerial hyperspectral image](https://data.mendeley.com/datasets/5ph8ms8p5n/2). Checking these sample datasets will help with utilizing the software.
 
 ### Local installation
+
+https://www.youtube.com/watch?v=ASME56KKpyY
+
 Please use the following code in R or Rstudio to install and use HyperGUI in a local machine.
 
 ```
@@ -23,6 +26,9 @@ hyperGUI::run_app()
 ```
 
 ### Benchtop sample
+
+https://www.youtube.com/watch?v=hj01nj_kAGs
+
 - For a benchtop sample first load the raw and hdr files of the image while selecting laboratory as type of hyperspectral image.
 
 <kbd>
@@ -112,6 +118,9 @@ hyperGUI::run_app()
 </kbd>
 
 ### Aerial Sample
+
+https://www.youtube.com/watch?v=4CiatNjQnqs
+
 - To load an aerial sample change the type of hyperspectral image to aerial and load the raw and hdr file. 
 
 <kbd>
