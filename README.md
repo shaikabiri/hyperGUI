@@ -2,7 +2,7 @@
 A Versatile Tool for Hyperspectral Image Analysis and Data Extraction
 
 ## User Guide
-HyperGUI is based on two datasets which can be accessed via these links: [A dataset for benchtop hyperspectral image](https://gsi.geodata.gov.ie/downloads/Bedrock/Data/Hyperspectral_Sample_data.zip) and [a dataset for aerial hyperspectral image](https://data.mendeley.com/datasets/5ph8ms8p5n/2). Checking these sample datasets will help with utilizing the software.
+HyperGUI is based on two datasets which can be accessed via these links: [A dataset for benchtop hyperspectral image](https://gsi.geodata.gov.ie/downloads/Bedrock/Data/Hyperspectral_Sample_data.zip) and [a dataset for aerial hyperspectral image](https://data.mendeley.com/datasets/5ph8ms8p5n/2). Checking these sample datasets will help with utilizing the software. The exact samples used in the video tutorials are also available for download: https://drive.google.com/file/d/1kM9M1xdiw2440kTmbgS-6xPVPu525-6-/view?usp=drive_link
 
 ### Local installation
 
