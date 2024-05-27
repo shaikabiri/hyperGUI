@@ -64,7 +64,7 @@ sidebar <- sidebarPanel(
   actionButton("PCAplot", "Plot PCA variance explaination by component"),
   tags$br(),
   tags$br(),
-  textInput("varPCA", "Enter the %Var explainable by reduced PCA data to save it as CSV: ", value = "0.95"),
+  textInput("varPCA", "Enter the %Var explainable by reduced PCA data to save it as the format selected above: ", value = "0.95"),
   downloadButton(outputId = "pcasave", "Save"),
   textOutput("pcainfo"),
   tags$hr(),
