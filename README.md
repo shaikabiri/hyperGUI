@@ -7,6 +7,7 @@ HyperGUI is based on two datasets which can be accessed via these links: [A data
 ### Local installation
 
 Click on the image to watch the video tutorial:
+
 [![Installation](https://img.youtube.com/vi/ASME56KKpyY/hqdefault.jpg)](https://www.youtube.com/watch?v=ASME56KKpyY)
 
 
@@ -30,6 +31,7 @@ hyperGUI::run_app()
 ### Benchtop sample
 
 Click on the image to watch the video tutorial:
+
 [![Installation](https://img.youtube.com/vi/hj01nj_kAGs/hqdefault.jpg)](https://www.youtube.com/watch?v=hj01nj_kAGs)
 
 - For a benchtop sample first load the raw and hdr files of the image while selecting laboratory as type of hyperspectral image.
@@ -123,6 +125,7 @@ Click on the image to watch the video tutorial:
 ### Aerial Sample
 
 Click on the image to watch the video tutorial:
+
 [![Installation](https://img.youtube.com/vi/4CiatNjQnqs/hqdefault.jpg)](https://www.youtube.com/watch?v=4CiatNjQnqs)
 
 - To load an aerial sample change the type of hyperspectral image to aerial and load the raw and hdr file. 
