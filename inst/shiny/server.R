@@ -351,7 +351,7 @@ server <- function(input, output, session) {
       if (max(which(cumulPCAvar<=as.numeric(input$varPCA)))!=-Inf)
       {
         pcaSaveMat <<- pca_anal$score[,1:max(which(cumulPCAvar<=as.numeric(input$varPCA)))]
-        pcaSaveMat <<- array(pcaSaveMat,c(dim(saveMat)[1],dim(saveMat)[2],max(which(cumulPCAvar<=0.999999))))
+        pcaSaveMat <<- array(pcaSaveMat,c(dim(saveMat)[1],dim(saveMat)[2],max(which(cumulPCAvar<=as.numeric(input$varPCA)))))
       } else {
         pcaSaveMat <<- pca_anal$score[,1]
         pcaSaveMat <<- array(pcaSaveMat,c(dim(saveMat)[1],dim(saveMat)[2],1))
@@ -558,7 +558,7 @@ server <- function(input, output, session) {
     if (max(which(cumulPCAvar<=as.numeric(input$varPCA)))!=-Inf)
     {
      pcaSaveMat <<- pca_anal$score[,1:max(which(cumulPCAvar<=as.numeric(input$varPCA)))]
-     pcaSaveMat <<- array(pcaSaveMat,c(dim(saveMat)[1],dim(saveMat)[2],max(which(cumulPCAvar<=0.999999))))
+     pcaSaveMat <<- array(pcaSaveMat,c(dim(saveMat)[1],dim(saveMat)[2],max(which(cumulPCAvar<=as.numeric(input$varPCA)))))
     } else {
       pcaSaveMat <<- pca_anal$score[,1]
       pcaSaveMat <<- array(pcaSaveMat,c(dim(saveMat)[1],dim(saveMat)[2],1))
