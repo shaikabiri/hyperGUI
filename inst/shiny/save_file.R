@@ -67,7 +67,7 @@ observeEvent(input$saveformat,{
       filename = function(){
         "dataset.tiff"
       },
-      content =  function(file) {terra::writeRaster(x = pcaSaveMat, filename = file)}
+      content =  function(file) {terra::writeRaster(x = terra::rst(pcaSaveMat), filename = file)}
     )
   }
     
