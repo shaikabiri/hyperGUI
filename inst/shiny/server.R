@@ -348,14 +348,14 @@ server <- function(input, output, session) {
     {
       pca_anal <<- princomp(saveMat2d)
       cumulPCAvar <<- cumsum(pca_anal$sdev^2 / sum(pca_anal$sdev^2))
-      #if (max(which(cumulPCAvar<=0.10))!=-Inf)
-      #{
-      pcaSaveMat <<- pca_anal$score[,1:max(which(cumulPCAvar<=as.numeric(input$varPCA)))]
-      pcaSaveMat <<- array(pcaSaveMat,c(dim(saveMat)[1],dim(saveMat)[2],dim(pcaSaveMat)[2]))
-      #} else {
-      #  pcaSaveMat <<- pca_anal$score[,1]
-      #  pcaSaveMat <<- array(pcaSaveMat,c(dim(saveMat)[1],dim(saveMat)[2],dim(pcaSaveMat)[2]))
-      #}
+      if (max(which(cumulPCAvar<=0.10))!=-Inf)
+      {
+        pcaSaveMat <<- pca_anal$score[,1:max(which(cumulPCAvar<=as.numeric(input$varPCA)))]
+        pcaSaveMat <<- array(pcaSaveMat,c(dim(saveMat)[1],dim(saveMat)[2],max(which(cumulPCAvar<=0.999999))))
+      } else {
+        pcaSaveMat <<- pca_anal$score[,1]
+        pcaSaveMat <<- array(pcaSaveMat,c(dim(saveMat)[1],dim(saveMat)[2],1))
+      }
       pcaMat <- pca_anal$scores[, 1:3]
       pcaRGB <-
         array(pcaMat, dim = c(dim(saveMat)[1], dim(saveMat)[2], 3))
@@ -555,14 +555,14 @@ server <- function(input, output, session) {
 
   observeEvent(input$varPCA,{
     if (exists("cumulPCAvar")){
-    #if (max(which(cumulPCAvar<=0.10))!=-Inf)
-    #{
-    pcaSaveMat <<- pca_anal$score[,1:max(which(cumulPCAvar<=as.numeric(input$varPCA)))]
-    pcaSaveMat <<- array(pcaSaveMat,c(dim(saveMat)[1],dim(saveMat)[2],dim(pcaSaveMat)[2]))
-    #} else {
-    #  pcaSaveMat <<- pca_anal$score[,1]
-    #  pcaSaveMat <<- array(pcaSaveMat,c(dim(saveMat)[1],dim(saveMat)[2],dim(pcaSaveMat)[2]))
-    #}
+    if (max(which(cumulPCAvar<=0.10))!=-Inf)
+    {
+     pcaSaveMat <<- pca_anal$score[,1:max(which(cumulPCAvar<=as.numeric(input$varPCA)))]
+     pcaSaveMat <<- array(pcaSaveMat,c(dim(saveMat)[1],dim(saveMat)[2],max(which(cumulPCAvar<=0.999999))))
+    } else {
+      pcaSaveMat <<- pca_anal$score[,1]
+      pcaSaveMat <<- array(pcaSaveMat,c(dim(saveMat)[1],dim(saveMat)[2],dim(pcaSaveMat)[2]))
+    }
   } })
 
   observeEvent(input$PCAplot,{
