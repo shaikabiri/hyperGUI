@@ -555,14 +555,14 @@ server <- function(input, output, session) {
 
   observeEvent(input$varPCA,{
     if (exists("cumulPCAvar")){
-    if (max(which(cumulPCAvar<=0.10))!=-Inf)
-    {
-      pcaSaveMat <<- pca_anal$score[,1:max(which(cumulPCAvar<=as.numeric(input$varPCA)))]
-      pcaSaveMat <<- array(pcaSaveMat,c(dim(saveMat)[1],dim(saveMat)[2],dim(pcaSaveMat)[2]))
-    } else {
-      pcaSaveMat <<- pca_anal$score[,1]
-      pcaSaveMat <<- array(pcaSaveMat,c(dim(saveMat)[1],dim(saveMat)[2],dim(pcaSaveMat)[2]))
-    }
+    #if (max(which(cumulPCAvar<=0.10))!=-Inf)
+    #{
+    pcaSaveMat <<- pca_anal$score[,1:max(which(cumulPCAvar<=as.numeric(input$varPCA)))]
+    pcaSaveMat <<- array(pcaSaveMat,c(dim(saveMat)[1],dim(saveMat)[2],dim(pcaSaveMat)[2]))
+    #} else {
+    #  pcaSaveMat <<- pca_anal$score[,1]
+    #  pcaSaveMat <<- array(pcaSaveMat,c(dim(saveMat)[1],dim(saveMat)[2],dim(pcaSaveMat)[2]))
+    #}
   } })
 
   observeEvent(input$PCAplot,{
