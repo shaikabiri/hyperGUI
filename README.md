@@ -6,7 +6,7 @@ HyperGUI is based on two datasets which can be accessed via these links: [A data
 
 ### Local installation
 
-https://www.youtube.com/watch?v=ASME56KKpyY
+<iframe width="1236" height="695" src="https://www.youtube.com/embed/ASME56KKpyY" title="HyperGUI: Installation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Please use the following code in R or Rstudio to install and use HyperGUI in a local machine.
 
