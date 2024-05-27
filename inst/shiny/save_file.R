@@ -63,7 +63,7 @@ observeEvent(input$saveformat,{
 
   else if (input$saveformat == "rast"){
     
-    output$save <- downloadHandler(
+    output$pcasave <- downloadHandler(
       filename = function(){
         "dataset.tiff"
       },
@@ -81,11 +81,4 @@ observeEvent(input$saveformat,{
       "wavelengths.csv"
     },
     content =  function(file) {write.csv(hdrspare$wavelength,file)}
-  )
-
-  output$pcasave <- downloadHandler(
-    filename = function(){
-      "pca.csv"
-    },
-    content =  function(file) {write.csv(pcaSaveMat,file)}
   )
